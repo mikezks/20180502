@@ -4,7 +4,7 @@ import { EventService } from '../../event.service';
 import { Observable } from 'rxjs/Observable';
 import { Store } from '@ngrx/store';
 import { FlightBookingState } from '../+state/flight-booking.interfaces';
-import { FlightsLoadedAction, FlightUpdateAction } from '../+state/flight-booking.actions';
+import { FlightsLoadedAction, FlightUpdateAction, FlightsLoadAction } from '../+state/flight-booking.actions';
 import { take } from 'rxjs/operators';
 import { getFlights } from '../+state/flight-booking.selectors';
 
@@ -47,7 +47,7 @@ export class FlightSearchComponent implements OnInit {
     this.flightService.load(this.from, this.to, this.urgent);
   
     // new:
-    this.flightService
+    /* this.flightService
         .find(this.from, this.to, this.urgent)
         .subscribe(
           flights => { 
@@ -56,7 +56,10 @@ export class FlightSearchComponent implements OnInit {
           error => {
             console.error('error', error);
           } 
-        );
+        ); */
+    
+    // newest:
+    this.store.dispatch(new FlightsLoadAction(this.from, this.to, this.urgent));
   }
   
   delay(): void {
