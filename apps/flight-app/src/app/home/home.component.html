@@ -28,6 +28,15 @@
     -->
   </div>
 
+  <div class="card">
+    <div class="content">
+      count$: {{count$ | async}}
+    </div>
+    <div class="content">
+      <button (click)="countUp()" class="btn btn-default">countUp</button>
+    </div>
+  </div>
+
 </div>
 
 
