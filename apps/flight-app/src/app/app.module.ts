@@ -40,7 +40,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
       }
     ),
     EffectsModule.forRoot([AppEffects]),
-    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    !environment.production ? StoreDevtoolsModule.instrument() : []
     //StoreRouterConnectingModule
   ],
   declarations: [
